@@ -1,20 +1,19 @@
 #list containers
 docker ps
 
-#run an imag
+#run an image
 docker run --name container_name -p host_port:container_port  image_name
- docker run -it  python bash
+docker run -it  python bash
  
 #interactive mode
 docker exec -it container_name /bin/bash
-
+docker exec -it container_name sh
 
 #run container
 docker run --name python-calc1 -p 7000:5000 python-calc
 
 #create network
 docker network create mongo-express-network
-
 
 #docker create mongodb container
 docker run -d \
@@ -36,21 +35,14 @@ docker run -d \
 --net mongo-express-network \
 mongo-express
 
-
 #volume 
 docker volumes
 
- 
-
-annonymouse volume: 
-
+annonymous volume: 
 -v ./flask_app   gets stored in /var/lib/docker
 
 named volumes
-
 -v py_vol:/flask_app gets stored in /var/lib/docker and has a name
 
-
 bind volumes
-
 -v path/to/project:/flask_app  left of : has to be path of that folder/file else will give errors
